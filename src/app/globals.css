@@ -19,6 +19,10 @@ html {
     flex-wrap: wrap;
     gap: 20px 60px;
 }
+.title {
+    text-align: center;
+    width: 100%;
+}
 .error {
     text-align: center;
     color: red;

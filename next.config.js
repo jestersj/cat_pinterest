@@ -3,7 +3,6 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    basePath: "/cat_pinterest",
     output: 'export',
 };
 

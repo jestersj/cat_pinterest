@@ -10,6 +10,9 @@ const Page = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     useEffect(() => {
+        if (!localStorage.getItem('likes')) {
+            localStorage.setItem('likes', JSON.stringify({}))
+        }
         // @ts-ignore
         const likes = JSON.parse(localStorage.getItem('likes'))
         const arr = Object.keys(likes)
@@ -29,6 +32,9 @@ const Page = () => {
                 cats.map(cat =>
                     <Card cat={cat} key={cat.id}/>
                 )
+            }
+            {!isLoading && cats.length < 1 &&
+                <h2 className={'title'}>У вас пока не любимых котиков</h2>
             }
             {isLoading && <Circle/>}
             {isError && <p className={'error'}>Произошла ошибка, перезагрузите страницу</p>}
